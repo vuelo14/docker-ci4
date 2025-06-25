@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  app:
+    image: ci4-php74-apache:latest # Gunakan image yang sudah Anda buat
+    container_name: ci4-app
+    volumes:
+      - /path/ke/proyek/ci4:/var/www/html # Ganti dengan path host proyek CI4 Anda
+    ports:
+      - "80:80"
+    networks:
+      - ci4-network
+    # depends_on:
+    #   - db # Jika Anda punya service database
+networks:
+  ci4-network:
+    driver: bridge
